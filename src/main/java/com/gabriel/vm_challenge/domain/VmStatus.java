@@ -1,4 +1,4 @@
-package com.seunome.vmchallenge.domain;
+package com.gabriel.vm_challenge.domain;
 
 public enum VmStatus {
     PROVISIONING,

@@ -1,10 +1,10 @@
-package com.gabriel.vm_chellenge.service;
+package com.gabriel.vm_challenge.service;
 
-import com.gabriel.vm_chellenge.domain.VirtualMachine;
-import com.gabriel.vm_chellenge.domain.VmStatus;
-import com.gabriel.vm_chellenge.dto.CreateVmRequest;
-import com.gabriel.vm_chellenge.dto.VirtualMachineResponse;
-import com.gabriel.vm_chellenge.repository.VirtualMachineRepository;
+import com.gabriel.vm_challenge.domain.VirtualMachine;
+import com.gabriel.vm_challenge.domain.VmStatus;
+import com.gabriel.vm_challenge.dto.CreateVmRequest;
+import com.gabriel.vm_challenge.dto.VirtualMachineResponse;
+import com.gabriel.vm_challenge.repository.VirtualMachineRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import java.util.List;

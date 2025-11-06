@@ -1,6 +1,6 @@
-package com.gabriel.vm_chellenge.repository;
+package com.gabriel.vm_challenge.repository;
 
-import com.gabriel.vm_chellenge.domain.VirtualMachine;
+import com.gabriel.vm_challenge.domain.VirtualMachine;
 import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.UUID;
 

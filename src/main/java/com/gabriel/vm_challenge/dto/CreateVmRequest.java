@@ -1,4 +1,4 @@
-package com.seunome.vmchallenge.dto;
+package com.gabriel.vm_challenge.dto;
 
 import jakarta.validation.constraints.*;
 

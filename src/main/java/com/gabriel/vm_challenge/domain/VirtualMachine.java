@@ -1,4 +1,4 @@
-package com.seunome.vmchallenge.domain;
+package com.gabriel.vm_challenge.domain;
 
 import jakarta.persistence.*;
 import java.util.UUID;

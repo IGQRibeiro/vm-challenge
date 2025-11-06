@@ -1,6 +1,6 @@
-package com.seunome.vmchallenge.dto;
+package com.gabriel.vm_challenge.dto;
 
-import com.seunome.vmchallenge.domain.VmStatus;
+import com.gabriel.vm_challenge.domain.VmStatus;
 import java.util.UUID;
 
 public record VirtualMachineResponse(
