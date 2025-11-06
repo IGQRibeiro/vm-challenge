@@ -22,11 +22,11 @@ public class VirtualMachineService {
     @Transactional
     public VirtualMachineResponse create(CreateVmRequest req) {
         VirtualMachine vm = new VirtualMachine();
-        vm.setName(req.name());
-        vm.setCpu(req.cpu());
-        vm.setMemoryMb(req.memoryMb());
-        vm.setDiskGb(req.diskGb());
-        vm.setRegion(req.region());
+        vm.setName(req.getName());
+        vm.setCpu(req.getCpu());
+        vm.setMemoryMb(req.getMemoryMb());
+        vm.setDiskGb(req.getDiskGb());
+        vm.setRegion(req.getRegion());
         vm.setStatus(VmStatus.PROVISIONING);
         vm = repo.save(vm);
         return toResponse(vm);

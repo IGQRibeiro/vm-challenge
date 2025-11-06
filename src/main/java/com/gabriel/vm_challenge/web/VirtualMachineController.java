@@ -41,7 +41,7 @@ public class VirtualMachineController {
     @PatchMapping("/{id}/status")
     public VirtualMachineResponse updateStatus(@PathVariable UUID id,
                                                @Valid @RequestBody UpdateStatusRequest req) {
-        return service.updateStatus(id, req.status());
+        return service.updateStatus(id, req.getStatus());
     }
 
     // Mapeia erros comuns para respostas HTTP claras (sem adicionar features extras)
