@@ -1,1 +1,43 @@
-<p>dashboard works!</p>
+<div class="dashboard">
+  <h2>Dashboard</h2>
+
+  <p class="welcome">
+    Olá! Bem-vindo ao painel de gestão de Máquinas Virtuais.
+    Aqui você acompanha o status das VMs e o uso do limite disponível.
+  </p>
+
+  <div class="cards">
+    <div class="card">
+      <h3>Total de VMs</h3>
+      <p class="value">{{ vms.length }}</p>
+      <p class="hint">Limite máximo: {{ maxVms }}</p>
+    </div>
+
+    <div class="card">
+      <h3>RUNNING</h3>
+      <p class="value">{{ runningCount }}</p>
+    </div>
+
+    <div class="card">
+      <h3>PAUSED</h3>
+      <p class="value">{{ pausedCount }}</p>
+    </div>
+
+    <div class="card">
+      <h3>STOP</h3>
+      <p class="value">{{ stopCount }}</p>
+    </div>
+  </div>
+
+  <div class="charts">
+    <div class="chart">
+      <h3>VMs por Status</h3>
+      <canvas #barCanvas></canvas>
+    </div>
+
+    <div class="chart">
+      <h3>Total de VMs x Limite</h3>
+      <canvas #pieCanvas></canvas>
+    </div>
+  </div>
+</div>

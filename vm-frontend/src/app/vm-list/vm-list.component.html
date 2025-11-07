@@ -1,1 +1,42 @@
-<p>vm-list works!</p>
+<div class="vm-list">
+  <div class="header">
+    <h2>Máquinas Virtuais</h2>
+    <button (click)="onAdd()">➕ Adicionar VM</button>
+  </div>
+
+  <table *ngIf="vms.length > 0; else empty">
+    <thead>
+    <tr>
+      <th>Nome</th>
+      <th>CPU</th>
+      <th>Memória (MB)</th>
+      <th>Disco (GB)</th>
+      <th>Região</th>
+      <th>Status</th>
+      <th>Ações</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let vm of vms">
+      <td>{{ vm.name }}</td>
+      <td>{{ vm.cpu }}</td>
+      <td>{{ vm.memoryMb }}</td>
+      <td>{{ vm.diskGb }}</td>
+      <td>{{ vm.region }}</td>
+      <td>
+        <span [class]="vm.status.toLowerCase()">{{ vm.status }}</span>
+      </td>
+      <td class="actions">
+        <button (click)="onStart(vm)" [disabled]="vm.status === 'RUNNING'">▶️ Iniciar</button>
+        <button (click)="onPause(vm)" [disabled]="vm.status !== 'RUNNING'">⏸️ Pausar</button>
+        <button (click)="onStop(vm)" [disabled]="vm.status === 'STOP'">⏹️ Parar</button>
+        <button class="delete" (click)="onDelete(vm)">🗑️ Excluir</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <ng-template #empty>
+    <p class="empty">Nenhuma VM cadastrada. Clique em <b>“Adicionar VM”</b> para criar a primeira.</p>
+  </ng-template>
+</div>

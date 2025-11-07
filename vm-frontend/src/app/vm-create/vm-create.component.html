@@ -1,1 +1,70 @@
-<p>vm-create works!</p>
+<div class="vm-create">
+  <div class="header">
+    <h2>Cadastrar Máquina Virtual</h2>
+    <button type="button" (click)="onBack()">Voltar</button>
+  </div>
+
+  <form (ngSubmit)="onSubmit()" #form="ngForm" novalidate>
+    <div class="field">
+      <label for="name">Nome*</label>
+      <input
+        id="name"
+        name="name"
+        [(ngModel)]="name"
+        required
+        minlength="5"
+        placeholder="Ex: vm-api-01" />
+    </div>
+
+    <div class="field">
+      <label for="memoryMb">Memória (MB)*</label>
+      <input
+        id="memoryMb"
+        name="memoryMb"
+        type="number"
+        [(ngModel)]="memoryMb"
+        required
+        min="1"
+        placeholder="Ex: 4096" />
+      <small>Equivale a {{ memoryGb }} GB</small>
+    </div>
+
+    <div class="field">
+      <label for="cpu">CPU (inteiro)*</label>
+      <input
+        id="cpu"
+        name="cpu"
+        type="number"
+        [(ngModel)]="cpu"
+        required
+        step="1"
+        min="1"
+        placeholder="Ex: 2" />
+    </div>
+
+    <div class="field">
+      <label for="diskGb">Disco (GB)*</label>
+      <input
+        id="diskGb"
+        name="diskGb"
+        type="number"
+        [(ngModel)]="diskGb"
+        required
+        min="1"
+        placeholder="Ex: 50" />
+    </div>
+
+    <div class="field">
+      <label for="region">Região</label>
+      <input
+        id="region"
+        name="region"
+        [(ngModel)]="region"
+        placeholder="us-east-1" />
+    </div>
+
+    <p class="error" *ngIf="error">{{ error }}</p>
+
+    <button type="submit">Cadastrar</button>
+  </form>
+</div>

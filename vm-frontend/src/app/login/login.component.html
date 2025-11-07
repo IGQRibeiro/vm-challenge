@@ -1,1 +1,28 @@
-<p>login works!</p>
+<div class="login-container">
+  <h1>Login</h1>
+
+  <form (ngSubmit)="onSubmit()" #f="ngForm">
+    <label for="email">Email</label>
+    <input
+      id="email"
+      name="email"
+      type="email"
+      [(ngModel)]="email"
+      required
+      email
+    />
+
+    <label for="password">Senha</label>
+    <input
+      id="password"
+      name="password"
+      type="password"
+      [(ngModel)]="password"
+      required
+    />
+
+    <button type="submit">Entrar</button>
+  </form>
+
+  <p class="error" *ngIf="error">Credenciais inválidas.</p>
+</div>
