@@ -27,7 +27,7 @@ public class VirtualMachine {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private VmStatus status = VmStatus.PROVISIONING;
+    private VmStatus status = VmStatus.RUNNING;
 
     // Getters e setters
     public UUID getId() { return id; }

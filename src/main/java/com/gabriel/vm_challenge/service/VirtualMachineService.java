@@ -27,7 +27,6 @@ public class VirtualMachineService {
         vm.setMemoryMb(req.getMemoryMb());
         vm.setDiskGb(req.getDiskGb());
         vm.setRegion(req.getRegion());
-        vm.setStatus(VmStatus.PROVISIONING);
         vm = repo.save(vm);
         return toResponse(vm);
     }
@@ -60,12 +59,21 @@ public class VirtualMachineService {
     private boolean isValidTransition(VmStatus from, VmStatus to) {
         if (from == to) return true;
         return switch (from) {
-            case PROVISIONING -> (to == VmStatus.RUNNING || to == VmStatus.ERROR);
-            case RUNNING      -> (to == VmStatus.STOPPED || to == VmStatus.ERROR);
-            case STOPPED      -> (to == VmStatus.RUNNING || to == VmStatus.ERROR);
-            case ERROR        -> (to == VmStatus.STOPPED || to == VmStatus.RUNNING);
+            case RUNNING -> (to == VmStatus.PAUSED || to == VmStatus.STOP);
+            case PAUSED  -> (to == VmStatus.STOP   || to == VmStatus.RUNNING);
+            case STOP    -> (to == VmStatus.RUNNING);
         };
     }
+
+    @Transactional
+    public void delete(UUID id) {
+        if (!repo.existsById(id)) {
+            throw new IllegalArgumentException("VM not found: " + id);
+        }
+        repo.deleteById(id);
+    }
+
+
 
     private VirtualMachineResponse toResponse(VirtualMachine vm) {
         return new VirtualMachineResponse(
